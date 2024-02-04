@@ -1,6 +1,13 @@
-function Square({ value }) {
+import {useState } from 'react'
+
+
+function Square({ n }) {
+  const [ value, setValue] = useState(null)
+  const [ clicked, setClicked ] = useState(false)
   const handleClick = () => {
-    console.log('click' + value)
+    setValue('X')
+    setClicked(true)
+    console.log('click' + n)
   }
   
   return (
@@ -8,7 +15,7 @@ function Square({ value }) {
       className='square'
       onClick={handleClick} 
     >
-      {value}
+      {clicked ? value : n} 
     </button>
   )
 }
@@ -18,21 +25,21 @@ export default function Board() {
     <>
 
       <div className='board-row'>
-        <Square value='1' />
-        <Square value='2' />
-        <Square value='3' />
+        <Square n='1' />
+        <Square n='2' />
+        <Square n='3' />
       </div>
 
       <div className='board-row'>
-        <Square value='4' />
-        <Square value='5' />
-        <Square value='6' />
+        <Square n='4' />
+        <Square n='5' />
+        <Square n='6' />
       </div>
 
       <div className='board-row'>
-        <Square value='7' />
-        <Square value='8' />
-        <Square value='9' />
+        <Square n='7' />
+        <Square n='8' />
+        <Square n='9' />
       </div>
 
     </>
